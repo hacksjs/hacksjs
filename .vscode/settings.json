@@ -13,10 +13,37 @@
   // Lines will wrap at the edge of the editor area.
   "editor.wordWrap": "on",
 
+  // Enable/disable VSCode's built-in JavaScript validation system. This
+  // setting works only when the project folder is opened directly in VSCode,
+  // rather than the project folder being added to a workspace.
+  "javascript.validate.enable": true,
+
+  // Enable/disable VSCode's JS format-on-paste functionality. This setting also
+  // works only when the project folder is opened directly in VSCode, ie as its
+  // own workspace.
+  "javascript.format.enable": false,
+
+  // Enable the TypeScript type checker in all JavaScript files by default.
+  // This is equivalent to writing `@ts-check` in a comment at the top of all
+  // JavaScript files. When enabled, JSDoc notations will be used to gather
+  // additional type information for the intellisense system.
+  //
+  // This setting works only when the project folder is opened directly in
+  // VSCode, rather than being added to a larger workspace. For this reason, we
+  // also include the `@ts-check` comment at the top of all JavaScript files.
+  "js/ts.implicitProjectConfig.checkJs": false,
+
+  // Disable automatic file formatting for JS files. This
+  // setting effectively disables Prettier, if that extension
+  // is installed in the IDE.
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+
   // There is no maximum line length for Markdown files. In the editor, lines
-  // wrap themselves after 80 characters.
+  // wrap themselves after 120 characters.
   "[markdown]":{
-    "editor.rulers": [80, 120],
+    "editor.rulers": [],
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 120,
   },
@@ -43,7 +70,28 @@
     "MD041": false,
   },
 
-  // Spell check language: American English.
+  // Settings for the vscode-jest extension.
+  // https://github.com/jest-community/vscode-jest
+
+  // This is the command used to kick off tests in the terminal. The vscode-jest
+  // extension will pass additional options to this command at runtime, so we
+  // must append "--" to the "yarn run" command to ensure the injected options
+  // get forwarded tothe "jest" command.
+  // https://github.com/jest-community/vscode-jest#jestcommandline
+  "jest.jestCommandLine": "yarn run test -- ",
+
+  // Jest is configured to run tests via VSCode as follows:
+  // - Tests are NOT run automatically when VSCode is started up.
+  // - Tests are NOT run automatically when source files or test files change.
+  // - Test runs must be triggered manually in all cases.
+  // https://github.com/jest-community/vscode-jest#how-to-trigger-the-test-run
+  "jest.autoRun": {
+    "watch": false,
+    "onStartup": []
+  },
+
+  // Spell check language. For consistency with our technical documentation,
+  // we write in American English.
   "cSpell.language": "en-US",
 
   // File paths to not spell check.
@@ -61,9 +109,32 @@
 
   // A list of words to be considered correct spellings.
   "cSpell.words": [
-    "dotfile",
-    "dotfiles",
-    "powerline"
+    "browserslist",
+    "camelcase",
+    "datatracker",
+    "docblocks",
+    "espree",
+    "hackscorp",
+    "hacksjs",
+    "iife",
+    "lcov",
+    "linted",
+    "linters",
+    "nirvarnia",
+    "ruleset",
+    "rulesets",
+    "stackoverflow",
+    "styleguide",
+    "stylesheet",
+    "transcompilation",
+    "transcompile",
+    "transcompiler",
+    "transcompilers",
+    "tsdoc",
+    "vals",
+    "vars",
+    "visualstudio",
+    "vscode"
   ],
 
   // Spellings to always ignore. These are not real words, but are names or
