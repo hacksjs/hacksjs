@@ -22,8 +22,6 @@ import { isString } from '../validation'
 const isBlankText = (test) => {
   if (!isString(test)) return false
 
-  console.debug(test)
-
   const testNFC = test.normalize('NFC')
 
   const trimmed = testNFC.trim()
