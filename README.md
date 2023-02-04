@@ -1,3 +1,6 @@
 # Hacks.js
 
-**Mono-repo for all Hacks.js packages**
+-----
+
+Copyright © 2020-2023 Hack Ltd \
+[MIT license](./LICENSE.txt)
