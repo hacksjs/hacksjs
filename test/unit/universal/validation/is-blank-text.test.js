@@ -1,13 +1,13 @@
 // @ts-check
 
 import { isBlankText } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isBlankText()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isBlankText)
+  test.fn(isBlankText)
 
   // Notes
   //
@@ -23,7 +23,7 @@ describe('isBlankText()', () => {
   // such as LF and CR, though inherited from the original family of control
   // characters, do pass as blank/whitespace characters, however.
 
-  builder.passes([
+  test.passes([
     'string literal of zero length',
     'string literal with three space characters',
     'string literal with "en space" character',
@@ -46,6 +46,6 @@ describe('isBlankText()', () => {
     'string object with "zero-width non-breaking space" character - unicode encoded',
   ])
 
-  builder.run()
+  test.run()
 
 })

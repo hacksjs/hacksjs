@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isNumericString } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isNumericString()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isNumericString)
+  test.fn(isNumericString)
 
-  builder.passes([
+  test.passes([
     'number literal max value encoded as string',
     'number literal min value encoded as string',
     'number literal binary encoded as string',
@@ -24,7 +24,7 @@ describe('isNumericString()', () => {
     'number primitive zero encoded as string',
   ])
 
-  builder.run()
+  test.run()
 
   //   test('return false for "99,999"', () => {
   //     const test = '99,999'

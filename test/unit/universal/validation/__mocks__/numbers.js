@@ -4,6 +4,7 @@
 // to pass the isValidNumber() test. They are defined here because
 // they are shared with the isNumber() test suite — which only adds
 // the check for NaN (an invalid number).
+//
 const all_mock_valid_number_keys = [
   'number literal binary',
   'number literal exponential',

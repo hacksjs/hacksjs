@@ -3,6 +3,7 @@
 // These are the keys to the mock values that are expected
 // to pass the isAnyPrimitive() test. They are defined here because
 // they are shared with the isAnyObject() test suite.
+//
 const all_mock_primitive_keys = [
   'bigint factory',
   'bigint factory binary',

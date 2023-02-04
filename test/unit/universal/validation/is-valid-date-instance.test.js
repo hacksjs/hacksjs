@@ -1,20 +1,20 @@
 // @ts-check
 
 import { isValidDateInstance } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isValidDateInstance()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isValidDateInstance)
+  test.fn(isValidDateInstance)
 
-  builder.passes([
+  test.passes([
     'date object with current time',
     'date object with far-future time',
     'date object with historic time',
   ])
 
-  builder.run()
+  test.run()
 
 })

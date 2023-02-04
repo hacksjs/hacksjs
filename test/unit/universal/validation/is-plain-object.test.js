@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isPlainObject } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isPlainObject()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isPlainObject)
+  test.fn(isPlainObject)
 
-  builder.passes([
+  test.passes([
     'object constructed with no own properties',
     'object constructed with own property',
     'object literal with no own properties',
@@ -21,6 +21,6 @@ describe('isPlainObject()', () => {
     'object with own non-writable property',
   ])
 
-  builder.run()
+  test.run()
 
 })

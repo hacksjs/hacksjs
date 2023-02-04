@@ -21,15 +21,15 @@ import { mocks, mock_keys } from '../__mocks__'
  * import { isBlankText } from './path/to/validation'
  *
  * // Initialize a new instance of this test builder class.
- * const builder = new ValidationFunctionTestBuilder()
+ * const test = new ValidationFunctionTest()
  *
  * // Set the validation function to be tested. Expected
  * // to return boolean true or false.
- * builder.fn()
+ * test.fn(isBlankText)
  *
  * // Provide a list of key names that reference mock values
  * // that are expected to pass the validation function's test.
- * builder.passes([
+ * test.passes([
  *   'string literal',
  *   'string object',
  *   'template literal',
@@ -38,9 +38,9 @@ import { mocks, mock_keys } from '../__mocks__'
  * // Compile and run all the tests. Tests will be automatically created
  * // for all the mock values for which the given validation function is
  * // expected to fail.
- * builder.run()
+ * test.run()
  */
-class ValidationFunctionTestBuilder {
+class ValidationFunctionTest {
 
   /**
    * Reference to the function to test.
@@ -121,7 +121,6 @@ class ValidationFunctionTestBuilder {
    * Build and run the test suite.
    */
   run () {
-
     describe('return true', () => {
       const expected = true
 
@@ -150,4 +149,4 @@ class ValidationFunctionTestBuilder {
   }
 }
 
-export { ValidationFunctionTestBuilder }
+export { ValidationFunctionTest }

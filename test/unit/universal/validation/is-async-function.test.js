@@ -1,20 +1,20 @@
 // @ts-check
 
 import { isAsyncFunction } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isAsyncFunction()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isAsyncFunction)
+  test.fn(isAsyncFunction)
 
-  builder.passes([
+  test.passes([
     'function anonymous async',
     'function arrow async',
     'function named async',
   ])
 
-  builder.run()
+  test.run()
 
 })

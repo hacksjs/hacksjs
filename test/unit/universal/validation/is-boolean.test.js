@@ -1,21 +1,21 @@
 // @ts-check
 
 import { isBoolean } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isBoolean()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isBoolean)
+  test.fn(isBoolean)
 
-  builder.passes([
+  test.passes([
     'boolean object false',
     'boolean object true',
     'boolean primitive false',
     'boolean primitive true',
   ])
 
-  builder.run()
+  test.run()
 
 })

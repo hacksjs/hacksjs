@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isFunction } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isFunction()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isFunction)
+  test.fn(isFunction)
 
-  builder.passes([
+  test.passes([
     'function anonymous',
     'function anonymous async',
     'function anonymous returning promise',
@@ -21,6 +21,6 @@ describe('isFunction()', () => {
     'function named returning promise',
   ])
 
-  builder.run()
+  test.run()
 
 })

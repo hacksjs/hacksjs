@@ -1,19 +1,19 @@
 // @ts-check
 
 import { isUndefined } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isUndefined()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isUndefined)
+  test.fn(isUndefined)
 
-  builder.passes([
+  test.passes([
     'undefined',
     'void 0',
   ])
 
-  builder.run()
+  test.run()
 
 })

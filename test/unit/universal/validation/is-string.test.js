@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isString } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isString()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isString)
+  test.fn(isString)
 
-  builder.passes([
+  test.passes([
     'number literal max value encoded as string',
     'number literal min value encoded as string',
     'number literal binary encoded as string',
@@ -57,6 +57,6 @@ describe('isString()', () => {
     'string object with "zero-width non-breaking space" character - unicode encoded',
   ])
 
-  builder.run()
+  test.run()
 
 })

@@ -1,18 +1,18 @@
 // @ts-check
 
 import { isNull } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isNull()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isNull)
+  test.fn(isNull)
 
-  builder.passes([
+  test.passes([
     'null',
   ])
 
-  builder.run()
+  test.run()
 
 })

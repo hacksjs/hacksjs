@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isSyncFunction } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isSyncFunction()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isSyncFunction)
+  test.fn(isSyncFunction)
 
-  builder.passes([
+  test.passes([
     'function anonymous',
     'function anonymous returning promise',
     'function arrow',
@@ -18,6 +18,6 @@ describe('isSyncFunction()', () => {
     'function named returning promise',
   ])
 
-  builder.run()
+  test.run()
 
 })

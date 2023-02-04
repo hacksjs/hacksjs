@@ -1,18 +1,18 @@
 // @ts-check
 
 import { isNaN } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isNaN()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isNaN)
+  test.fn(isNaN)
 
-  builder.passes([
+  test.passes([
     'nan',
   ])
 
-  builder.run()
+  test.run()
 
 })

@@ -1,15 +1,15 @@
 // @ts-check
 
 import { hasOwnProperties } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('hasOwnProperties()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(hasOwnProperties)
+  test.fn(hasOwnProperties)
 
-  builder.passes([
+  test.passes([
     // Arrays will have own properties matching the available
     // indexes: 0, 1, 2, 3, etc.
     'array literal with elements',
@@ -44,6 +44,6 @@ describe('hasOwnProperties()', () => {
     'typed array from iterator object',
   ])
 
-  builder.run()
+  test.run()
 
 })

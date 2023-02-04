@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isArray } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isArray()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isArray)
+  test.fn(isArray)
 
-  builder.passes([
+  test.passes([
     'array literal with no elements',
     'array literal with elements',
     'array literal with elements with undefined values',
@@ -18,6 +18,6 @@ describe('isArray()', () => {
     'array constructed with no elements',
   ])
 
-  builder.run()
+  test.run()
 
 })

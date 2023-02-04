@@ -1,18 +1,18 @@
 // @ts-check
 
 import { isArguments } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isArguments()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isArguments)
+  test.fn(isArguments)
 
-  builder.passes([
+  test.passes([
     'arguments built-in variable',
   ])
 
-  builder.run()
+  test.run()
 
 })

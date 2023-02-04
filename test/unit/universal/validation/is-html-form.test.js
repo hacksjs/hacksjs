@@ -1,18 +1,18 @@
 // @ts-check
 
 import { isHTMLForm } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isHTMLForm()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isHTMLForm)
+  test.fn(isHTMLForm)
 
-  builder.passes([
+  test.passes([
     'dom element: form',
   ])
 
-  builder.run()
+  test.run()
 
 })

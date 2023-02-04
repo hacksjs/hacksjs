@@ -1,19 +1,19 @@
 // @ts-check
 
 import { isRegExp } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isRegExp()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isRegExp)
+  test.fn(isRegExp)
 
-  builder.passes([
+  test.passes([
     'regexp constructed',
     'regexp literal',
   ])
 
-  builder.run()
+  test.run()
 
 })

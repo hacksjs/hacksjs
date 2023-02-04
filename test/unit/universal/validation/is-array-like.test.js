@@ -1,7 +1,7 @@
 // @ts-check
 
 import { isArrayLike, isCollection, isIterable } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 const passes = [
   // These are the same values that pass for `isArray()`:
@@ -87,27 +87,27 @@ const passes = [
 
 describe('isArrayLike()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
-  builder.fn(isArrayLike)
-  builder.passes(passes)
-  builder.run()
+  const test = new ValidationFunctionTest()
+  test.fn(isArrayLike)
+  test.passes(passes)
+  test.run()
 
 })
 
 describe('isCollection()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
-  builder.fn(isCollection)
-  builder.passes(passes)
-  builder.run()
+  const test = new ValidationFunctionTest()
+  test.fn(isCollection)
+  test.passes(passes)
+  test.run()
 
 })
 
 describe('isIterable()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
-  builder.fn(isIterable)
-  builder.passes(passes)
-  builder.run()
+  const test = new ValidationFunctionTest()
+  test.fn(isIterable)
+  test.passes(passes)
+  test.run()
 
 })

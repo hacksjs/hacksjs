@@ -1,15 +1,15 @@
 // @ts-check
 
 import { isBigInt } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTestBuilder } from './__builders__'
+import { ValidationFunctionTest } from './__builders__'
 
 describe('isBigInt()', () => {
 
-  const builder = new ValidationFunctionTestBuilder()
+  const test = new ValidationFunctionTest()
 
-  builder.fn(isBigInt)
+  test.fn(isBigInt)
 
-  builder.passes([
+  test.passes([
     'bigint literal',
     'bigint literal octal',
     'bigint literal hexadecimal',
@@ -20,6 +20,6 @@ describe('isBigInt()', () => {
     'bigint factory binary',
   ])
 
-  builder.run()
+  test.run()
 
 })
