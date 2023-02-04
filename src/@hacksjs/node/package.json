@@ -1,0 +1,35 @@
+{
+  "name": "@hacksjs/node",
+  "version": "0.0.0-alpha.0",
+  "description": "A suite of components to help build Node applications.",
+  "keywords": ["node", "utilities", "cli", "server"],
+  "author": "Hacks Ltd <hello@hackscorp.dev>",
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/@hacksjs/node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hacksjs/hacksjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hacksjs/hacksjs/issues"
+  },
+  "files": [
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "README.md",
+    "lib/**/*"
+  ],
+  "engines": {
+    "node": "^14.15.0 || ^16.13.0"
+  },
+  "type": "module",
+  "bin": {},
+  "exports": {
+    "./cli": "./lib/cli/index.js",
+    "./http": "./lib/http/index.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {}
+}

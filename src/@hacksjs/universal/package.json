@@ -1,0 +1,44 @@
+{
+  "name": "@hacksjs/universal",
+  "version": "0.0.0-alpha.0",
+  "description": "Pure ECMAScript utility functions.",
+  "keywords": ["ecmascript", "es", "errors", "exceptions", "utility", "helpers"],
+  "author": "Hacks Ltd <hello@hackscorp.dev>",
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/@hacksjs/universal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hacksjs/hacksjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hacksjs/hacksjs/issues"
+  },
+  "files": [
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "README.md",
+    "lib/**/*"
+  ],
+  "engines": {
+    "node": "^14.15.0 || ^16.13.0"
+  },
+  "type": "module",
+  "bin": {},
+  "exports": {
+    "./assertions":  "./lib/assertions/index.js",
+    "./collections":  "./lib/collections/index.js",
+    "./errors":  "./lib/errors/index.js",
+    "./functions":  "./lib/functions/index.js",
+    "./math":  "./lib/math/index.js",
+    "./numbers":  "./lib/numbers/index.js",
+    "./objects":  "./lib/objects/index.js",
+    "./strings":  "./lib/strings/index.js",
+    "./temporal": "./lib/temporal/index.js",
+    "./validation":  "./lib/validation/index.js",
+    "./values":  "./lib/values/index.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {}
+}

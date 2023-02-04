@@ -1,0 +1,36 @@
+{
+  "name": "@hacksjs/web",
+  "version": "0.0.0-alpha.0",
+  "description": "DOM and other web platform abstractions.",
+  "keywords": ["web", "dom", "utility"],
+  "author": "Hacks Ltd <hello@hackscorp.dev>",
+  "contributors": [],
+  "license": "MIT",
+  "homepage": "https://www.npmjs.com/package/@hacksjs/web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hacksjs/hacksjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hacksjs/hacksjs/issues"
+  },
+  "files": [
+    "package.json",
+    "CHANGELOG.md",
+    "LICENSE.txt",
+    "README.md",
+    "lib/**/*"
+  ],
+  "engines": {
+    "node": "^14.15.0 || ^16.13.0"
+  },
+  "type": "module",
+  "bin": {},
+  "exports": {
+    "./document":  "./lib/document/index.js",
+    "./http": "./lib/http/index.js",
+    "./window":  "./lib/window/index.js"
+  },
+  "dependencies": {},
+  "peerDependencies": {}
+}
