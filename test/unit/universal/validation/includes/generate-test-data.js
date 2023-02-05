@@ -13,13 +13,13 @@ import 'jsdom-global/register'
 /**
  * TODO: Describe this…
  */
-const generateTestArtifacts = () => {
+const generateTestData = () => {
 
   /**
    * @typedef {*} AnyTestValue
    * @enum {AnyTestValue}
    */
-  const testValues = {
+  const testData = {
 
     'arguments built-in variable':
         (function () { return arguments })(),
@@ -494,10 +494,11 @@ const generateTestArtifacts = () => {
 
   }
 
-  const testKeys = Object.keys(testValues)
+  // const testKeys = Object.keys(testValues)
+  // return { testKeys, testValues }
 
-  return { testKeys, testValues }
+  return testData
 
 }
 
-export { generateTestArtifacts }
+export { generateTestData }

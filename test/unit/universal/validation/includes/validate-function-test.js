@@ -3,8 +3,8 @@
 // Test framework
 import { describe, expect, test } from '../../../../includes/test-framework'
 
-// Test artifacts generator
-import { generateTestArtifacts } from './generate-test-artifacts'
+// Test data generator
+import { generateTestData } from './generate-test-data'
 
 /**
  * @callback validationFunction
@@ -62,14 +62,18 @@ class ValidationFunctionTest {
    */
   #fails
 
-  #testKeys
-  #testValues
+  /**
+   * Shared values to test with validation functions
+   */
+  #testData
 
+  /**
+   * Generate fresh test data every time a new test suite is
+   * create for a validation function.
+   */
   constructor() {
-    const { testValues, testKeys } = generateTestArtifacts()
-
-    this.#testKeys = testKeys
-    this.#testValues = testValues
+    // TODO: Regenerate test data for every individual test.
+    this.#testData = generateTestData()
   }
 
   /**
@@ -95,14 +99,16 @@ class ValidationFunctionTest {
    * @throws Error if non-existent test key.
    */
   passes (keys) {
+    const tests = Object.keys(this.#testData)
+
     keys.forEach((key) => {
-      if (!this.#testKeys.includes(key)) {
-        throw Error(`Non-existent test key: "${key}"`)
+      if (!tests.includes(key)) {
+        throw Error(`Non-existent test: "${key}"`)
       }
     })
 
     this.#passes = keys
-    this.#fails = this.#testKeys.filter((key) => !keys.includes(key))
+    this.#fails = tests.filter((key) => !keys.includes(key))
   }
 
   /**
@@ -116,14 +122,16 @@ class ValidationFunctionTest {
    * @throws Error if non-existent test key.
    */
   fails (keys) {
+    const tests = Object.keys(this.#testData)
+
     keys.forEach((key) => {
-      if (!this.#testKeys.includes(key)) {
-        throw Error(`Non-existent test key: "${key}"`)
+      if (!tests.includes(key)) {
+        throw Error(`Non-existent test: "${key}"`)
       }
     })
 
     this.#fails = keys
-    this.#passes = this.#testKeys.filter((key) => !keys.includes(key))
+    this.#passes = tests.filter((key) => !keys.includes(key))
   }
 
   /**
@@ -137,8 +145,9 @@ class ValidationFunctionTest {
       // test data key in the test output.
       this.#passes.forEach((key) => {
         test(key, () => {
-          const value = this.#testValues[key]
+          const value = this.#testData[key]
           const actual = this.#fn(value)
+
           expect(actual).toEqual(expected)
         })
       })
@@ -149,8 +158,9 @@ class ValidationFunctionTest {
 
       this.#fails.forEach((key) => {
         test(key, () => {
-          const value = this.#testValues[key]
+          const value = this.#testData[key]
           const actual = this.#fn(value)
+
           expect(actual).toEqual(expected)
         })
       })
