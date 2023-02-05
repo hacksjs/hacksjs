@@ -11,7 +11,8 @@
 import 'jsdom-global/register'
 
 /**
- * TODO: Describe this…
+ * Regenerates fresh test data on every call, allowing us to ensure test data
+ * is not mutated between tests.
  */
 const generateTestData = () => {
 
@@ -493,9 +494,6 @@ const generateTestData = () => {
         void 0,
 
   }
-
-  // const testKeys = Object.keys(testValues)
-  // return { testKeys, testValues }
 
   return testData
 

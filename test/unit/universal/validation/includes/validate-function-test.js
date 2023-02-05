@@ -95,20 +95,20 @@ class ValidationFunctionTest {
    * This function will automatically compile a list of test values for
    * which the validation function is expected to fail.
    *
-   * @param {string[]} keys List of test keys.
+   * @param {string[]} passing_tests List of keys from test data.
    * @throws Error if non-existent test key.
    */
-  passes (keys) {
-    const tests = Object.keys(this.#testData)
+  passes (passing_tests) {
+    const all_tests = Object.keys(this.#testData)
 
-    keys.forEach((key) => {
-      if (!tests.includes(key)) {
+    passing_tests.forEach((key) => {
+      if (!all_tests.includes(key)) {
         throw Error(`Non-existent test: "${key}"`)
       }
     })
 
-    this.#passes = keys
-    this.#fails = tests.filter((key) => !keys.includes(key))
+    this.#passes = passing_tests
+    this.#fails = all_tests.filter((key) => !passing_tests.includes(key))
   }
 
   /**
@@ -118,20 +118,20 @@ class ValidationFunctionTest {
    * This function will automatically compile a list of test values for
    * which the validation function is expected to pass.
    *
-   * @param {string[]} keys List of test keys.
+   * @param {string[]} failing_tests List of keys from test data.
    * @throws Error if non-existent test key.
    */
-  fails (keys) {
-    const tests = Object.keys(this.#testData)
+  fails (failing_tests) {
+    const all_tests = Object.keys(this.#testData)
 
-    keys.forEach((key) => {
-      if (!tests.includes(key)) {
+    failing_tests.forEach((key) => {
+      if (!all_tests.includes(key)) {
         throw Error(`Non-existent test: "${key}"`)
       }
     })
 
-    this.#fails = keys
-    this.#passes = tests.filter((key) => !keys.includes(key))
+    this.#fails = failing_tests
+    this.#passes = all_tests.filter((key) => !failing_tests.includes(key))
   }
 
   /**
