@@ -1,6 +1,6 @@
 ---
 name: Maintenance
-about: Plan a routine housekeeping task
+about: Plan routine housekeeping and any tasks related to the upkeep of the software
 title: ''
 labels: maintenance
 assignees: ''
