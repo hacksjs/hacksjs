@@ -1,5 +1,9 @@
 // @ts-check
 
+// Test framework
+import { describe } from '../../../includes/test-framework'
+
+// Component under test
 // import { matchesUriFormat } from '../../../../src/@hacksjs/universal/lib/validation'
 
 describe('matchesUriFormat()', () => {

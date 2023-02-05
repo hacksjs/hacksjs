@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "nirvarnia",
+  "name": "hacks.js",
   "workspaces": [
     "src/@hacksjs/*"
   ],
@@ -12,7 +12,6 @@
   "devDependencies": {
     "@babel/core": "7.20.12",
     "@babel/preset-env": "7.20.2",
-    "@types/jest": "29.4.0",
     "babel-jest": "29.4.1",
     "jest": "29.4.1",
     "jsdom": "21.1.0",

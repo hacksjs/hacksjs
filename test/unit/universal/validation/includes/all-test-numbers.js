@@ -1,11 +1,11 @@
 // @ts-check
 
-// These are the keys to the mock values that are expected
+// These are the keys to the test values that are expected
 // to pass the isValidNumber() test. They are defined here because
 // they are shared with the isNumber() test suite — which only adds
 // the check for NaN (an invalid number).
 //
-const all_mock_valid_number_keys = [
+const all_test_numbers = [
   'number literal binary',
   'number literal exponential',
   'number literal exponential with decimal',
@@ -26,4 +26,4 @@ const all_mock_valid_number_keys = [
   'number primitive zero',
 ]
 
-export { all_mock_valid_number_keys }
+export { all_test_numbers }

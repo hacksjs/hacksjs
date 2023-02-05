@@ -1,7 +1,13 @@
 // @ts-check
 
+// Test framework
+import { describe } from '../../../includes/test-framework'
+
+// Test builder for validation functions
+import { ValidationFunctionTest } from './includes/validate-function-test'
+
+// Component under test
 import { isArrayLike, isCollection, isIterable } from '../../../../src/@hacksjs/universal/lib/validation'
-import { ValidationFunctionTest } from './__builders__'
 
 const passes = [
   // These are the same values that pass for `isArray()`:

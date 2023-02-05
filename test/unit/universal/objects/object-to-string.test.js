@@ -1,5 +1,8 @@
 // @ts-check
 
+// Test framework
+import { describe, test, expect } from '../../../includes/test-framework.js'
+
 import { objectToString, object_tostring_map } from '../../../../src/@hacksjs/universal/lib/objects'
 
 // Import JSDom to emulate web platform APIs.

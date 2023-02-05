@@ -1,10 +1,10 @@
 // @ts-check
 
-// These are the keys to the mock values that are expected
+// These are the keys to the test values that are expected
 // to pass the isAnyPrimitive() test. They are defined here because
 // they are shared with the isAnyObject() test suite.
 //
-const all_mock_primitive_keys = [
+const all_test_primitives = [
   'bigint factory',
   'bigint factory binary',
   'bigint factory hexadecimal',
@@ -65,4 +65,4 @@ const all_mock_primitive_keys = [
   'void 0',
 ]
 
-export { all_mock_primitive_keys }
+export { all_test_primitives }

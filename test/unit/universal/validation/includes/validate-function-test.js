@@ -1,14 +1,13 @@
 // @ts-check
 
-// Jest globals.
-import { describe, expect, test } from '@jest/globals'
+// Test framework
+import { describe, expect, test } from '../../../../includes/test-framework'
 
-// The mock values we test against.
-import { mocks, mock_keys } from '../__mocks__'
+// Test artifacts generator
+import { generateTestArtifacts } from './generate-test-artifacts'
 
 /**
  * @callback validationFunction
- *
  * @param {*} value Test value.
  * @returns {boolean} Whether or not the value passes the validation test.
  */
@@ -50,24 +49,34 @@ class ValidationFunctionTest {
   #fn
 
   /**
-   * List of mock keys for which the test function should pass.
+   * List of testKeys for which the test function should pass.
    *
    * @type {string[]}
    */
   #passes
 
   /**
-   * List of mock keys for which the test function should fail.
+   * List of testKeys for which the test function should fail.
    *
    * @type {string[]}
    */
   #fails
 
+  #testKeys
+  #testValues
+
+  constructor() {
+    const { testValues, testKeys } = generateTestArtifacts()
+
+    this.#testKeys = testKeys
+    this.#testValues = testValues
+  }
+
   /**
    * Provide a reference to the validation function to test.
    *
    * This will need to be wrapped in an outer function, if additional
-   * arguments need to be provided besides the mock value.
+   * arguments need to be provided besides the test value.
    *
    * @param {validationFunction} fn
    */
@@ -76,45 +85,45 @@ class ValidationFunctionTest {
   }
 
   /**
-   * Provide a list of keys from the mocks object, which reference values
+   * Provide a list of keys from the test data object, which reference values
    * for which the validation function is expected to pass.
    *
-   * This function will automatically compile a list of mock values for
+   * This function will automatically compile a list of test values for
    * which the validation function is expected to fail.
    *
-   * @param {string[]} keys List of mock keys.
-   * @throws Error if non-existent mock key.
+   * @param {string[]} keys List of test keys.
+   * @throws Error if non-existent test key.
    */
   passes (keys) {
     keys.forEach((key) => {
-      if (!mock_keys.includes(key)) {
-        throw Error(`Non-existent mock key: "${key}"`)
+      if (!this.#testKeys.includes(key)) {
+        throw Error(`Non-existent test key: "${key}"`)
       }
     })
 
     this.#passes = keys
-    this.#fails = mock_keys.filter((key) => !keys.includes(key))
+    this.#fails = this.#testKeys.filter((key) => !keys.includes(key))
   }
 
   /**
-   * Alternatively, provide keys from the mocks object that reference values
+   * Alternatively, provide keys from the test data object that reference values
    * for which the validation function is expected to fail.
    *
-   * This function will automatically compile a list of mock values for
+   * This function will automatically compile a list of test values for
    * which the validation function is expected to pass.
    *
-   * @param {string[]} keys List of mock keys.
-   * @throws Error if non-existent mock key.
+   * @param {string[]} keys List of test keys.
+   * @throws Error if non-existent test key.
    */
   fails (keys) {
     keys.forEach((key) => {
-      if (!mock_keys.includes(key)) {
-        throw Error(`Non-existent mock key: "${key}"`)
+      if (!this.#testKeys.includes(key)) {
+        throw Error(`Non-existent test key: "${key}"`)
       }
     })
 
     this.#fails = keys
-    this.#passes = mock_keys.filter((key) => !keys.includes(key))
+    this.#passes = this.#testKeys.filter((key) => !keys.includes(key))
   }
 
   /**
@@ -125,10 +134,10 @@ class ValidationFunctionTest {
       const expected = true
 
       // We are not using Jest's `test.each()` because it quotes the
-      // mock key in the test output.
+      // test data key in the test output.
       this.#passes.forEach((key) => {
         test(key, () => {
-          const value = mocks[key]
+          const value = this.#testValues[key]
           const actual = this.#fn(value)
           expect(actual).toEqual(expected)
         })
@@ -140,7 +149,7 @@ class ValidationFunctionTest {
 
       this.#fails.forEach((key) => {
         test(key, () => {
-          const value = mocks[key]
+          const value = this.#testValues[key]
           const actual = this.#fn(value)
           expect(actual).toEqual(expected)
         })
