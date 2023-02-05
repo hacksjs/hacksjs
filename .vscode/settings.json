@@ -5,22 +5,27 @@
   // while JSDoc-style docblocks SHOULD be shorter than 120 characters. But in
   // either case, these are not hard limits — some lines MAY be longer where
   // this is best for readability.
+
   "editor.rulers": [80, 120],
 
   // Transform tabs into two spaces.
+
   "editor.tabSize": 2,
 
   // Lines will wrap at the edge of the editor area.
+  //
   "editor.wordWrap": "on",
 
   // Enable/disable VSCode's built-in JavaScript validation system. This
   // setting works only when the project folder is opened directly in VSCode,
   // rather than the project folder being added to a workspace.
+  //
   "javascript.validate.enable": true,
 
   // Enable/disable VSCode's JS format-on-paste functionality. This setting also
   // works only when the project folder is opened directly in VSCode, ie as its
   // own workspace.
+  //
   "javascript.format.enable": false,
 
   // Enable the TypeScript type checker in all JavaScript files by default.
@@ -77,6 +82,7 @@
   // extension will pass additional options to this command at runtime, so we
   // must append "--" to the "yarn run" command to ensure the injected options
   // get forwarded tothe "jest" command.
+  //
   // https://github.com/jest-community/vscode-jest#jestcommandline
   "jest.jestCommandLine": "yarn run test -- ",
 
@@ -84,11 +90,9 @@
   // - Tests are NOT run automatically when VSCode is started up.
   // - Tests are NOT run automatically when source files or test files change.
   // - Test runs must be triggered manually in all cases.
-  // https://github.com/jest-community/vscode-jest#how-to-trigger-the-test-run
-  "jest.autoRun": {
-    "watch": false,
-    "onStartup": []
-  },
+  //
+  // https://github.com/jest-community/vscode-jest#autorun
+  "jest.autoRun": "off",
 
   // Spell check language. For consistency with our technical documentation,
   // we write in American English.
