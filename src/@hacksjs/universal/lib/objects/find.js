@@ -31,9 +31,6 @@
  *
  * find(target, ['a', '0', 'b', 'c'])
  * // → 100
- *
- * // Equivalent to:
- * target?.a[0]?.b?.c ?? null
  */
 const find = (object, path, fallback) => {
   if (typeof path === 'string') {
