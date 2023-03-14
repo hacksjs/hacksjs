@@ -5,5 +5,5 @@
  * @license   MIT
  */
 
-export { findValue } from './find-value'
+export { find } from './find'
 export { objectToString, object_tostring_map } from './object-to-string'
